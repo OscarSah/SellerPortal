@@ -1,4 +1,4 @@
-package com.hepsiglobal.utilities;
+package com.sellerportal.utilities;
 
 import java.io.FileInputStream;
 import java.util.Properties;

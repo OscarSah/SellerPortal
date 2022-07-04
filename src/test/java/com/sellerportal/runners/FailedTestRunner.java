@@ -1,4 +1,4 @@
-package com.hepsiglobal.runners;
+package com.sellerportal.runners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;

@@ -1,7 +1,7 @@
-package com.hepsiglobal.pages;
+package com.sellerportal.pages;
 
-import com.hepsiglobal.utilities.BrowserUtils;
-import com.hepsiglobal.utilities.Driver;
+import com.sellerportal.utilities.BrowserUtils;
+import com.sellerportal.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;

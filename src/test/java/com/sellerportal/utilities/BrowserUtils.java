@@ -1,4 +1,4 @@
-package com.hepsiglobal.utilities;
+package com.sellerportal.utilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
