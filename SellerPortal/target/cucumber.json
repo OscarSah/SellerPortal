@@ -1,0 +1,87 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2022-07-18T13:23:01.153Z",
+        "before": [
+          {
+            "result": {
+              "duration": 3042622000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.sellerportal.step_definitions.Hooks.setUp()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Login as admin",
+        "description": "",
+        "id": "login-feature;login-as-admin",
+        "after": [
+          {
+            "result": {
+              "duration": 143806000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "com.sellerportal.step_definitions.Hooks.tearDown(io.cucumber.java.Scenario)"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2062492000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "the user is on the login page",
+            "match": {
+              "location": "com.sellerportal.step_definitions.LoginStepDefs.the_user_is_on_the_login_page()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 193888000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "the user enters the credentials",
+            "match": {
+              "location": "com.sellerportal.step_definitions.LoginStepDefs.the_user_enters_the_credentials()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 1010668000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "the user logs in successfully",
+            "match": {
+              "location": "com.sellerportal.step_definitions.LoginStepDefs.the_user_logs_in_successfully()"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@wip"
+          }
+        ]
+      }
+    ],
+    "name": "Login feature",
+    "description": "",
+    "id": "login-feature",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/Login.feature",
+    "tags": []
+  }
+]
