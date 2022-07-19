@@ -73,8 +73,10 @@ public class ProductsStepDefs{
     @Then("the user clicks to add product on the basic part")
     public void the_user_clicks_to_add_product_on_the_basic_part() {
         ProductsPage productsPage=new ProductsPage();
+        BrowserUtils.waitFor(2);
         Actions at = new Actions(Driver.get());
         at.moveToElement(productsPage.addProductBasic).click().perform();
+        BrowserUtils.waitFor(2);
         Driver.get().findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[2]/button")).click();
         BrowserUtils.waitFor(2);
 
