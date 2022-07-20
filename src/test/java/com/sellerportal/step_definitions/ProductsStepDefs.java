@@ -11,7 +11,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
 
 public class ProductsStepDefs{
 
@@ -50,36 +49,94 @@ public class ProductsStepDefs{
 
         productsPage.guarantee.clear();
         productsPage.guarantee.sendKeys("0");
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
 
         at.moveToElement(productsPage.taxClass).click().perform();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
         at.moveToElement(productsPage.taxClass).sendKeys("Tax 0").perform();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
         at.moveToElement(productsPage.taxClass).sendKeys(Keys.ENTER).perform();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
 
         at.moveToElement(productsPage.fulfillmentDay).click().perform();
-        BrowserUtils.waitFor(2);
-        at.moveToElement(productsPage.fulfillmentDay).sendKeys(Keys.CLEAR).perform();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
+        Driver.get().findElement(By.xpath("//*[@id=\"fulfillment_day\"]")).clear();
+        BrowserUtils.waitFor(1);
+        at.moveToElement(productsPage.fulfillmentDay).click().perform();
+        BrowserUtils.waitFor(1);
         at.moveToElement(productsPage.fulfillmentDay).sendKeys("0").perform();
-        BrowserUtils.waitFor(2);
+        BrowserUtils.waitFor(1);
+
+        //BrowserUtils.waitFor(2);
         at.moveToElement(productsPage.fulfillmentDay).sendKeys(Keys.ENTER).perform();
-
-
     }
 
-    @Then("the user clicks to add product on the basic part")
-    public void the_user_clicks_to_add_product_on_the_basic_part() {
-        ProductsPage productsPage=new ProductsPage();
-        BrowserUtils.waitFor(2);
+    @Then("the user selects the first variant and fills out the required fields")
+    public void the_user_selects_the_first_variant_and_fills_out_the_required_fields() {
+        ProductsPage productsPage= new ProductsPage();
         Actions at = new Actions(Driver.get());
-        at.moveToElement(productsPage.addProductBasic).click().perform();
         BrowserUtils.waitFor(2);
-        Driver.get().findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[2]/button")).click();
+        at.moveToElement(productsPage.variantsTab).click().perform();
         BrowserUtils.waitFor(2);
+        at.moveToElement(productsPage.addVariant).click().perform();
+        BrowserUtils.waitFor(5);
+    }
 
+    @Then("the user fills out the blank fields of the appeared variant parts")
+    public void the_user_fills_out_the_blank_fields_of_the_appeared_variant_parts() {
+        ProductsPage productsPage=new ProductsPage();
+        Actions at = new Actions(Driver.get());
+        //BrowserUtils.waitFor(1);
+        at.moveToElement(productsPage.variantName).click().perform();
+        at.moveToElement(productsPage.variantName).sendKeys("hg test").perform();
+        //BrowserUtils.waitFor(1);
+        at.moveToElement(productsPage.variantSKU).click().perform();
+        //BrowserUtils.waitFor(1);
+        at.moveToElement(productsPage.variantSKU).sendKeys("brown_36_HB00000PCK4F");
+        //BrowserUtils.waitFor(1);
+        at.moveToElement(productsPage.variantPrice).click().perform();
+        at.moveToElement(productsPage.variantPrice).sendKeys("1100").perform();
+        //BrowserUtils.waitFor(1);
+        at.moveToElement(productsPage.variantRetailPrice).click().perform();
+        at.moveToElement(productsPage.variantRetailPrice).sendKeys("2200").perform();
+
+        at.moveToElement(productsPage.variantStock).click().perform();
+        at.moveToElement(productsPage.variantStock).sendKeys("10").perform();
+
+        at.moveToElement(productsPage.variantBarcode).click().perform();
+        at.moveToElement(productsPage.variantBarcode).sendKeys("123456").perform();
+
+        at.moveToElement(productsPage.variantHsCode).click().perform();
+        at.moveToElement(productsPage.variantHsCode).sendKeys("420293000000").perform();
+
+        at.moveToElement(productsPage.variantGTIN).click().perform();
+        at.moveToElement(productsPage.variantGTIN).sendKeys("09090909").perform();
+
+        at.moveToElement(productsPage.variantDescription).click().perform();
+        at.moveToElement(productsPage.variantDescription).sendKeys("shopping bag").perform();
+
+        at.moveToElement(productsPage.variantDeci).click().perform();
+        at.moveToElement(productsPage.variantDeci).sendKeys("11").perform();
+
+        at.moveToElement(productsPage.variantHeight).click().perform();
+        at.moveToElement(productsPage.variantHeight).sendKeys("55").perform();
+
+        at.moveToElement(productsPage.variantWidth).click().perform();
+        at.moveToElement(productsPage.variantWidth).sendKeys("35").perform();
+
+        at.moveToElement(productsPage.variantLength).click().perform();
+        at.moveToElement(productsPage.variantLength).sendKeys("09").perform();
+
+        at.moveToElement(productsPage.variantWeight).click().perform();
+        at.moveToElement(productsPage.variantWeight).sendKeys("5").perform();
+    }
+    @Then("the user hover overs to images tab")
+    public void the_user_hover_overs_to_images_tab() {
+        ProductsPage productsPage=new ProductsPage();
+        Actions at = new Actions(Driver.get());
+        at.moveToElement(productsPage.imagesTab).click().perform();
+
+        BrowserUtils.waitFor(10);
     }
 
 
