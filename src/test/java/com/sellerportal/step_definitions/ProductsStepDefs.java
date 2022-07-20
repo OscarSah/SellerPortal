@@ -137,6 +137,7 @@ public class ProductsStepDefs{
         at.moveToElement(productsPage.imagesTab).click().perform();
 
         BrowserUtils.waitFor(10);
+
     }
 
 
