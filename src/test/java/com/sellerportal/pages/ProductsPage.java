@@ -1,7 +1,16 @@
 package com.sellerportal.pages;
 
+import com.sellerportal.utilities.BrowserUtils;
+import com.sellerportal.utilities.Driver;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+
+import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class ProductsPage extends BasePage{
 
@@ -85,6 +94,37 @@ public class ProductsPage extends BasePage{
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div[2]/div/ul/li[3]/a")
     public WebElement imagesTab;
+    @FindBy(xpath = "//input[@id='default_image_file']")
+    public WebElement imagesChooseFile;
+
+    @FindBy(xpath = "//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")
+    public WebElement clickimage;
+
+    private static final File file=new File("/Users/jacket.jpeg");
+    public void uploadFile(){
+        final WebElement uploadFile= Driver.get().findElement((By) imagesChooseFile);
+        uploadFile.sendKeys(file.getAbsolutePath());
+    }
+
+    public void upload() throws InterruptedException {
+        Actions actions=new Actions(Driver.get());
+        Thread.sleep(3000);
+        actions.moveToElement(imagesChooseFile).doubleClick().perform();
+        Thread.sleep(5000);
+
+        String filename="/Users/jacket.jpeg";
+        File file = new File(filename);
+        String path= file.getAbsolutePath();
+
+        Thread.sleep(10000);
+        actions.sendKeys(imagesChooseFile,path).build().perform();
+        BrowserUtils.waitFor(5);
+        actions.sendKeys(imagesChooseFile,path).build().perform();
+
+    }
+
+
+
 
 
 }

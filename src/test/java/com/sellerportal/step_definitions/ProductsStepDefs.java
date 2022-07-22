@@ -4,13 +4,27 @@ package com.sellerportal.step_definitions;
 import com.sellerportal.pages.ProductsPage;
 import com.sellerportal.utilities.BrowserUtils;
 import com.sellerportal.utilities.Driver;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.LocalFileDetector;
+import org.openqa.selenium.remote.RemoteWebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import javax.xml.datatype.Duration;
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.security.Key;
 
 public class ProductsStepDefs{
 
@@ -135,8 +149,103 @@ public class ProductsStepDefs{
         ProductsPage productsPage=new ProductsPage();
         Actions at = new Actions(Driver.get());
         at.moveToElement(productsPage.imagesTab).click().perform();
+    }
+    @Then("the user clicks on choose file and uploads the product image")
+    public void the_user_clicks_on_choose_file_and_uploads_the_product_image() throws InterruptedException, AWTException {
+        ProductsPage productsPage=new ProductsPage();
+        Thread.sleep(8000);
+        productsPage.upload();
 
-        BrowserUtils.waitFor(10);
+
+
+
+        //WebDriverWait wait=new WebDriverWait(Driver.get(),10);
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")));
+        //at.moveToElement(productsPage.imagesChooseFile).click().perform();
+        //wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//input[@type='file']")));
+        //Thread.sleep(5000);
+        //Driver.get().findElement(By.xpath("//input[@type='file']")).click();
+        //at.moveToElement((WebElement) By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")).sendKeys("/Users/ehilal/Downloads/jacket.jpeg/test-folder");
+        //Driver.get().findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")).sendKeys("/Users/ehilal/Downloads/jacket.jpeg");
+        //Thread.sleep(5000);
+        //JavascriptExecutor jse=(JavascriptExecutor) Driver.get();
+        //jse.executeScript("document.getElementById('default_image_file').value='//Users/ehilal/IdeaProjects/SellerPortal/src/test/resources/files/jacket.jpeg'");
+        //at.moveToElement((WebElement) By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")).sendKeys("//Users/ehilal/Downloads/jacket.jpeg/test-folder");
+
+
+        /*
+        Actions at = new Actions(Driver.get());
+        WebElement element=Driver.get().findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div"));
+        WebElement element2=Driver.get().findElement(By.xpath("//input[@type='file']"));
+        at.moveToElement(productsPage.imagesChooseFile).click().perform();
+        Thread.sleep(5000);
+        at.moveToElement(productsPage.imagesChooseFile).sendKeys("/Users/ehilal/Desktop/jacket.jpeg");
+        JavascriptExecutor js=(JavascriptExecutor) Driver.get();
+        js.executeScript("arguments[0].style.display='block';",element2);
+        BrowserUtils.waitFor(5);
+        at.moveToElement(productsPage.imagesChooseFile).sendKeys("/Users/ehilal/Desktop/jacket.jpeg");
+        */
+
+
+        /*Driver.get().findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")).click();
+        BrowserUtils.waitFor(3);
+        Driver.get().findElement(By.xpath("//*[@id=\"root\"]/div/div[3]/div/div[2]/div/div[1]/div[3]/div/div/form/div/div")).sendKeys("/Users/ehilal/Downloads/jacket.jpeg");
+        */
+
+        /*at.moveToElement(productsPage.imagesChooseFile).click().perform();
+        BrowserUtils.waitFor(5);
+        at.moveToElement(productsPage.imagesChooseFile).sendKeys("ç").perform();
+        BrowserUtils.waitFor(5);
+        at.moveToElement(productsPage.clickimage).click().perform();
+         */
+
+
+        /*StringSelection s=new StringSelection("/Users/ehilal/Downloads/jacket.jpeg");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(s, null);
+        Thread.sleep(2000);
+
+        at.moveToElement(productsPage.imagesChooseFile).click().perform();
+
+
+         */
+
+        /*Robot robot=new Robot();
+        robot.delay(3000);
+
+        robot.keyPress(KeyEvent.VK_RIGHT);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_DOWN);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        Thread.sleep(3000);
+        */
+
+
+        /*Robot robot=new Robot();
+        robot.keyPress(KeyEvent.VK_META);
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.keyPress(KeyEvent.VK_META);
+        robot.keyPress(KeyEvent.VK_TAB);
+        robot.delay(500);
+
+        robot.keyPress(KeyEvent.VK_META);
+        robot.keyPress(KeyEvent.VK_SHIFT);
+        robot.keyPress(KeyEvent.VK_G);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyPress(KeyEvent.VK_META);
+        robot.keyPress(KeyEvent.VK_V);
+
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.delay(500);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        */
 
     }
 

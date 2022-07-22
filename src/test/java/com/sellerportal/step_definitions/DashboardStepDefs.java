@@ -29,7 +29,7 @@ public class DashboardStepDefs {
     }
     @Then("the user logs in successfully")
     public void the_user_logs_in_successfully() throws InterruptedException {
-        Thread.sleep(1000);
+        BrowserUtils.waitFor(2);
         String expected="https://seller-qa.hepsiglobal.com/admin/companies";
         String actual=Driver.get().getCurrentUrl();
         Assert.assertEquals(expected,actual);
